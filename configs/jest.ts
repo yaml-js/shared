@@ -1,6 +1,6 @@
 import * as path from 'path';
 
-export default (displayName: string, ignorePatterns: string[]) => {
+export default (nodeModulesRoot: string, displayName: string, ignorePatterns: string[]) => {
   return {
     passWithNoTests: true,
     rootDir: "..",
@@ -21,7 +21,7 @@ export default (displayName: string, ignorePatterns: string[]) => {
       ['jest-junit', { suiteName: '', outputFile: 'build/reports/tests/junit.xml', includeConsoleOutput: 'true' }],
       'default',
       [
-        path.resolve(__dirname, "../node_modules/jest-html-reporter"),
+        path.resolve(nodeModulesRoot, "./jest-html-reporter"),
         {
           pageTitle: 'Unit Test Report',
           outputPath: 'build/reports/tests/unit-tests.html',
