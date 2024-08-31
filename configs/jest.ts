@@ -31,7 +31,11 @@ export default (nodeModulesRoot: string, displayName: string, ignorePatterns: st
     ],
     transform: { '^.+\\.ts?$': [ "ts-jest", { "useESM": true } ] },
     testEnvironment: 'node',
-    testMatch: ['<rootDir>/tests/**/*.test.[jt]s?(x)'],
+    testMatch: [
+      '<rootDir>/tests/**/*.test.[jt]s?(x)',
+      '<rootDir>/tests.integration/**/*.spec.[jt]s?(x)',
+      '<rootDir>/tests.e2e/**/*.spec.[jt]s?(x)'
+    ],
     testPathIgnorePatterns: ['node_modules'],
   };
 }
